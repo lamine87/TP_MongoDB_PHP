@@ -1,0 +1,29 @@
+[{
+    "_id": {
+      "$oid": "645394636f1b000015007d74"
+    },
+    "code": "873784",
+    "modele": "Nissan",
+    "carburant": "diesel"
+  },{
+    "_id": {
+      "$oid": "6453a32a6f1b000015007d75"
+    },
+    "code": "793135",
+    "modele": "Toyota",
+    "carburant": "diesel"
+  },{
+    "_id": {
+      "$oid": "6453ab846f1b000015007d76"
+    },
+    "code": "87378T2",
+    "modele": "Evoque",
+    "carburant": "electrique"
+  },{
+    "_id": {
+      "$oid": "6453b8206f1b000015007d84"
+    },
+    "code": "1373784",
+    "modele": "Mercedes",
+    "carburant": "gpl"
+  }]
