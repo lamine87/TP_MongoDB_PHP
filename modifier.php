@@ -136,7 +136,7 @@
                     <div class="form-row">
                         <div class="form-group ">
                             <label for="description">Description</label>
-                            <input type="text" class="form-control" name="description" id="description" value="<?php echo $article['description']?>">
+                            <textarea type="text" class="form-control" name="description" id="description"><?php echo $article['description']?></textarea>
                         </div>
                     </div>
                     <div class="form-row">
