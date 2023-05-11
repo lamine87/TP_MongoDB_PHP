@@ -2,13 +2,12 @@
  
  require 'vendor/autoload.php';
  $client = new MongoDB\Client("mongodb://localhost:27017");
- $userCollection = $client->voitures->carpark;
+ $articleCollection = $client->vitemarket->articles;
 
-
-    $car_id = $_GET['id'];
+    $article_id = $_GET['id'];
     
-    $result = $userCollection->deleteOne(['_id' => new MongoDB\BSON\ObjectID($car_id)]);
-    $_SESSION['success'] = "Car successfully deleted";
+    $result = $articleCollection->deleteOne(['_id' => new MongoDB\BSON\ObjectID($article_id)]);
+    $_SESSION['success'] = "Article supprimer avec succès";
     header("Location: index.php");
  
  ?>

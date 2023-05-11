@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <title>VITEMARKET</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>VITEMARKET</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
 <body>
-  <header>
+<header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="p-2 navbar-brand" href="#">
         <img class="logo-vitmarket" src="" alt="">
@@ -27,9 +27,7 @@
             <a class="nav-link" href="#">Home </a>
           </li>
           <li class="nav-item active">
-            <div class="">
-              <a class="btn btn-primary" href='addarticle.php'>Faire une annonce</a>
-            </div>
+           
           </li>
      
 
@@ -88,48 +86,51 @@
     </nav>
 
   </header>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-    
-        <?php
-        require 'vendor/autoload.php';
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form action="insertion.php" method="POST" enctype="multipart/form-data" class="">
 
-        $client = new MongoDB\Client("mongodb://localhost:27017");
-        $articleCollection = $client->vitemarket->articles;
+                    <div class="text-center">
+                        <h2 class="">Ajouter un article</h2>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" class="form-control" id="nom" name="nom" >
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group ">
+                            <label for="description">Description</label>
+                            <textarea type="text" class="form-control" name="description" id="description"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="prix">Prix</label>
+                            <input type="text" class="form-control" id="prix" name="prix">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="prix">Adresse</label>
+                            <input type="adresse" class="form-control" id="adresse" name="adresse">
+                        </div>
+                    </div><br/>
+                    <div><input type="reset" value="Reinitialiser"></div>
+                    <button type="submit" class="btn btn-primary mt-5">Envoyer</button>
 
+            </div>
 
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-          $articles = $articleCollection->find();
-          $filter = [];
-          $options = ['sort' => ['_id' => -1]];
-
-          if ($articles) {
-            foreach ($articles as $article) {
-              echo '<hr>';
-              echo $article['nom'] . '<br/>';
-              echo $article['description'] . '<br/>';
-              echo $article['prix'] . '<br/>';
-              echo $article['adresse'] . '<br/><br/>';
-              echo '<button class="btn btn-outline-primary" onclick="location.href=\'modifier.php?id='.$article['_id'].'\'">Modifier</button>';
-              echo '<button class="btn btn-outline-danger" onclick="location.href=\'supprimer.php?id='.$article['_id'].'\'">supprimer</button>';
-              echo '<hr>';
-            }
-          } else {
-            echo "<p>Aucune Annonce publiée</p>";
-            exit();
-          }
-        }
-
-
-        ?>
-
-      </div>
+        </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-
+    </form>
+    </div>
+    </div>
+    </div>
 </body>
+
 
 </html>
